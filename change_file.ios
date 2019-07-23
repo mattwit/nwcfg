@@ -1,0 +1,15 @@
+! 
+! commands are executed in global config mode (conf t)
+! for instance if you wanted to run show ip int b 
+! you could execute the commands 2 different ways
+! see the below 2 examples:
+! 
+! do show ip int brief
+!
+! or
+! 
+! exit
+! show ip int brief
+
+
+do show ip int brief
