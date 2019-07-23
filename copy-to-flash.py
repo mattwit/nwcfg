@@ -26,7 +26,7 @@ device = {
 # create start time for script running time
 start_time = datetime.now()
 
-# convert datetime to a string
+# convert datetime to a string for use in filename
 datetimeStr = start_time.strftime("%Y%m%d-%H%M%S")
 
 print("\n")
