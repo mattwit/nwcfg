@@ -10,6 +10,7 @@ import getpass
 # function to prompt for user command input and issue command
 def login():
 
+    # open host file and read to string
     with open("hosts.txt", "r") as f:
         ipaddr = f.read().splitlines()
     f.close()
@@ -23,6 +24,7 @@ def login():
 # function to input and issue command
 def cmd():
 
+    # open capture output file
     file = open('output.txt', 'w')
 
     hostfile,uname,passwd = login()
