@@ -16,8 +16,8 @@ def login():
     f.close()
 
     #uname = getpass.getuser() #uncomment to read username from Windows...commented out for GNS3 testing
-    uname = input('username:')
-    passwd = getpass.getpass(prompt='password: ', stream=None)
+    uname = input('username:') #prompt for username
+    passwd = getpass.getpass(prompt='Password: ', stream=None) #prompt for pw
 
     return ipaddr,uname,passwd
 
