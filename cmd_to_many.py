@@ -25,7 +25,7 @@ def cmd():
 
     file = open('output.txt', 'w')
 
-    hostfile,uname,passwd = login()\
+    hostfile,uname,passwd = login()
     
     command = input("Enter Global Config Command:")
 
