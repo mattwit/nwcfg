@@ -7,7 +7,7 @@ from netmiko import ConnectHandler
 from datetime import datetime
 import getpass
 
-# login function
+# function to prompt for user command input and issue command
 def login():
 
     with open("hosts.txt", "r") as f:
@@ -29,6 +29,7 @@ def cmd():
     
     command = input("Enter Global Config Command:")
 
+    # iterate through hostfile for ssh and sending command
     for ipaddr in hostfile:
         device = {
             "device_type": "cisco_ios",
