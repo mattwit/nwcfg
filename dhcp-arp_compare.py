@@ -1,21 +1,27 @@
-# DHCP Address Lease and ARP/MAC Table Compare
+# DHCP Address Lease and ARP Table Compare
 # still a work in progress
 #
 # Merges csv files to help figure out hostnames in switch output of arp or mac table
-# Requires DHCP address lease export and switch arp or mac table output (e.g. show arp)
-# rename IP Address columns in both csv files to for a common index to sort and merge
+# Requires DHCP address lease export and switch arp table output (e.g. show iparp for EXOS)
+# Script renames IP Address column for each output and merges indexing on the new common column name
 
 # pandas library is required (pandas.pydata.org)
 import pandas as pd
 from pandas import DataFrame
 
-# read csv file from switch mac table output (arp or mac table)
+# read csv file from switch arp table output (EXOS 'show ip arp' output)
 csv1 = pd.read_csv("MAC.csv")
 
-# read csv file from DHCP server
+# rename 'Destination' column from EXOS 'show iparp' output
+csv1.rename(columns={'Destination':'ipAddress'}, inplace=True)
+
+# read csv file from Windows DHCP server address lease export
 csv2 = pd.read_csv("DHCP.csv")
 
-# merge csv files keying on common IP address
+# rename 'Destination' column from Windows DHCP server address lease export
+csv2.rename(columns={'Client IP Address':'ipAddress'}, inplace=True)
+
+# merge csv files keying on column 'ipAddress' in both csv files
 csv3 = pd.merge(csv1, csv2)
 
 # export output to a csv file named 'merge.csv'
