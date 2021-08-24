@@ -1,6 +1,6 @@
 # cisco.cmd.py 
 #
-# user imput of a command in global config mode
+# user input of a command in global config mode
 # output of command writes to console
 # 
 
